@@ -44,16 +44,16 @@ Note: Treat this token like a password; do not share it or expose it in your cod
 
 ## Installation
 
-Use the package manager  to install [github-hook-user](https://www.npmjs.com/package/github-hook-user).
+Use the package manager  to install [github-user-api](https://www.npmjs.com/package/github-user-api).
 
 ```bash
-npm install github-hook-user
+npm install github-user-api
 ```
 
 ## Usage
 
 ```
-import { useGithubHook } from "github-hook-user";
+import { useGithubHook } from "github-user-api";
 import { useEffect } from "react";
 
 
@@ -70,7 +70,7 @@ function App() {
   useEffect(() => {
     fetchData();
   }, []);
-  return <>Github Hook User</>;
+  return <>Github User Api</>;
 }
 ```
 ## Author
