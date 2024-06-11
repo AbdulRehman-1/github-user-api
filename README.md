@@ -1,31 +1,77 @@
-# NPM Module Boilerplate
+﻿# Github-User-Api
 
-**Start developing your NPM module in seconds** ✨
+This library provides methods to interact with GitHub's API for the following functionalities:
 
-Readymade boilerplate setup with all the best practices to kick-start your npm/node module development.
+Fetch User Repositories: Retrieves a list of all repositories for a specified GitHub user.
+Fetch a Single Repository: Retrieves detailed information about a specific repository for a user.
+Fetch Issues for a Repository: Retrieves a list of issues for a specified repository.
+The library uses the requests library to make HTTP requests to GitHub's API, it can authenticate requests using a GitHub personal access token.
 
-Happy hacking =)
+# Steps to generate personel-token
+- Log in with your GitHub username and password.
+Navigate to Settings:
 
-# Features
+- Click on your profile picture in the top-right corner of the page.
+Select Settings from the dropdown menu.
+Access Developer Settings:
 
-- **Microbundle** for bundling
-- **ES6/ESNext** - Write _ES6_ code and _Microbundle_ will make bundle of it to ES5 for backwards compatibility
-- **Test** - _Jest_ with _Istanbul_ coverage
-- **Lint** - Preconfigured _ESlint_ with best practices
-- **CI** - _TravisCI_ configuration setup
-- **Minify** - Built code will be minified for performance
+- In the left sidebar, scroll down and click on Developer settings.
+Create a New Personal Access Token:
 
-# Commands
+- Click on Personal access tokens in the left sidebar.
 
-- `npm run lint` - Run ESlint
-- `npm run build` - Microbundle will transpile ES6 => ES5 and minify the code.
-- `npm run dev` - Microbundle will watch and create build on change.
-- `npm run test` - Run tests with jest.
+- Click on the Generate new token button on the right side of the page.
 
-# Installation
+- Configure Token Settings:
 
-Just clone this repo and remove `.git` folder.
+Note: Give your token a descriptive name in the Note field.
 
-# License
+Expiration: Choose an expiration period for your token or set it to No expiration.
 
-MIT © Yousuf Kalim
+- Scopes: Select the scopes or permissions you want the token to have. For general repository access, select:
+repo: Full control of private repositories.
+read:org: Read-only access to organization membership.
+user: Read-only access to your profile information.
+notifications: Read your notifications.
+Note: Select additional scopes based on your specific needs.
+
+- Generate Token:
+Once you have selected the desired scopes, click the Generate token button at the bottom of the page.
+Save Your Token:
+
+Important: Copy the generated token immediately and store it securely. You will not be able to see it again once you leave the page.
+Note: Treat this token like a password; do not share it or expose it in your code.
+
+## Installation
+
+Use the package manager  to install [github-hook-user](https://www.npmjs.com/package/github-hook-user).
+
+```bash
+npm install github-hook-user
+```
+
+## Usage
+
+```
+import { useGithubHook } from "github-hook-user";
+import { useEffect } from "react";
+
+
+function App() {
+  const token = "";
+  const username = "";
+
+  const { fetchRepos } = useGithubHook(token);
+
+  const fetchData = async () => {
+    const data = await fetchRepos(username);
+    console.log(data);
+  };
+  useEffect(() => {
+    fetchData();
+  }, []);
+  return <>Github Hook User</>;
+}
+```
+## Author
+Abdul Rehman
